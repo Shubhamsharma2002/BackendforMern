@@ -8,7 +8,7 @@ server.use('/api', router)
 
 
 server.get('/', (req, res) => {
-    return res.send("Server is fired successfully :)");
+    return res.send("Server is fired successfully :---:)");
 });
 
 
