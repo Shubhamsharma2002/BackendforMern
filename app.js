@@ -4,7 +4,12 @@ import router from "./src/Routes/index.js";
 
 
 const server = express();
+
+server.use(
+    express.urlencoded({ extended: true })
+);
 server.use(express.json());
+// app.use(express.json());
 server.use('/api/v1', router)
 
 

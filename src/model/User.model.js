@@ -4,9 +4,8 @@ const userSchema = new Schema(
     {
         fullname:{
             type:String,
-            required:true,
-            trim:true,
-            index:true
+            // required:true,
+           
         },
         email:{
             type:String,
