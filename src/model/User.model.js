@@ -1,10 +1,10 @@
 import mongoose ,{Schema} from "mongoose";
-
+import jwt from "jsonwebtoken";
 const userSchema = new Schema(
     {
         fullname:{
             type:String,
-            // required:true,
+            required:true,
            
         },
         email:{
@@ -36,4 +36,24 @@ const userSchema = new Schema(
 
 )
 
+
+
+
+userSchema.methods.genrateToken  = async function(){
+     try {
+        return jwt.sign(
+            {
+                _id: this._id,
+                email: this.email,
+                isAdmin:this.isAdmin
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            {
+                expiresIn: process.env.ACCESS_TOKEN_EXPIRY 
+            }
+        )
+     } catch (error) {
+        console.log(error);
+     }
+}
 export const User = mongoose.model("User", userSchema);
