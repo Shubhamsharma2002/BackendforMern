@@ -14,7 +14,13 @@ const register = async(req,res)=>{
       const hashed_Password = await bcrypt.hash(password,saltRound);
        const user = await User.create({fullname,email,phone,password:hashed_Password});
       
-         res.status(201).json({msg:user , token : await user.genrateToken()})
+         res.status(201).json(
+            {
+            msg:"user created sucessfully" , 
+            token : await user.genrateToken(),
+            userId : user._id.toString()
+         }
+      )
    
         
          
