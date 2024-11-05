@@ -31,4 +31,37 @@ const register = async(req,res)=>{
 
 
 
-export {register};
+
+const login = async(req,res)=>{
+       try {
+               const {email,password} = req.body;
+               const validEmail = await User.findOne({email});
+               if(!validEmail){
+                   console.log(`enter email is not a valid email ${req.body.email}`);  
+                   return res.status(400).json({
+                     message:"Invalid Credentials"
+                   }) ;
+               }
+             const validPassword = await bcrypt.compare(password, validEmail.password)
+             if(validPassword){
+               res.status(200).json(
+                  {
+                  msg:"Login sucessfully" , 
+                  token : await validEmail.genrateToken(),
+                  userId : validEmail._id.toString()
+               }
+            )
+             }else{
+               return res.status(401).json({
+                  message:"Invalid email or password"
+                }) ;
+             }
+
+       } catch (error) {
+         console.log("error in login")
+
+       }
+}
+
+
+export {register,login};
