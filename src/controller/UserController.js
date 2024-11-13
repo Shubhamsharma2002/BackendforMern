@@ -8,7 +8,7 @@ const register = async(req,res)=>{
           console.log(req.body)
        const emailExist = await User.findOne({email});
        if(emailExist){
-          res.status(400).json({msg:"  email alardey reistred  with the our  company"})
+          res.status(400).json({msg:"  email alardey reistred  with the   company"})
        }
       const saltRound = 10;
       const hashed_Password = await bcrypt.hash(password,saltRound);
