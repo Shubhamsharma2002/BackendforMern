@@ -5,7 +5,7 @@ const register = async(req,res)=>{
     
    try {
        const {fullname,email,phone,password} = req.body;
-          console.log(req.body)
+         //  console.log(req.body)
        const emailExist = await User.findOne({email});
        if(emailExist){
           res.status(400).json({msg:"  email alardey reistred  with the our  company"})
