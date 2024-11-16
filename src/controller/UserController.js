@@ -16,7 +16,7 @@ const register = async(req,res)=>{
       
          res.status(201).json(
             {
-            msg:"user created sucessfully" , 
+            msg:"user created sucessfully ::)" , 
             token : await user.genrateToken(),
             userId : user._id.toString()
          }
@@ -39,21 +39,21 @@ const login = async(req,res)=>{
                if(!validEmail){
                    console.log(`enter email is not a valid email ${req.body.email}`);  
                    return res.status(400).json({
-                     message:"Invalid Credentials"
+                     message:"Invalid Credentials::-)"
                    }) ;
                }
              const validPassword = await bcrypt.compare(password, validEmail.password)
              if(validPassword){
                res.status(200).json(
                   {
-                  msg:"Login sucessfully" , 
+                  msg:"Login sucessfully ::)" , 
                   token : await validEmail.genrateToken(),
                   userId : validEmail._id.toString()
                }
             )
              }else{
                return res.status(401).json({
-                  message:"Invalid email or password"
+                  message:"Invalid email or password [:.:]"
                 }) ;
              }
 
