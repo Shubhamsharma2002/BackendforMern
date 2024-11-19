@@ -4,9 +4,15 @@ const validete = (schema) => async(req, res,next)=>{
          req.body = parseBody;
          next();
     } catch (err) {
-        const msg = err.errors[0].message;
-        console.log(msg)
-        res.status(400).json({msg:msg})
+        const status = 422;
+        const message = "fill the input properly"
+        const extraDetails = err.errors[0].message;
+         const error = {
+            status,
+            message,
+            extraDetails
+         }
+        next(error);
     }
 }
 

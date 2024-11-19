@@ -1,5 +1,6 @@
 import express, { response } from "express";
 import router from "./src/Routes/index.js";
+import errorMiddleware from "./src/Middleware/error-middleware.js";
 
 
 
@@ -12,6 +13,8 @@ server.use(express.json());
 // app.use(express.json());
 server.use('/api/v1', router)
 
+
+server.use(errorMiddleware)
 
 server.get('/', (req, res) => {
     return res.send("Server is fired successfully :---:)");
