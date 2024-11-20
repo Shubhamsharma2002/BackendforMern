@@ -1,7 +1,6 @@
-import express, { response } from "express";
+import express from "express";
 import router from "./src/Routes/index.js";
 import errorMiddleware from "./src/Middleware/error-middleware.js";
-
 
 
 const server = express();
