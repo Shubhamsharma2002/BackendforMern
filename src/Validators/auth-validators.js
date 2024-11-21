@@ -30,4 +30,22 @@ const signupSchema = z.object({
 })
 
 
-export default signupSchema;
+const loginSchema = z.object({
+    // email validation
+    email: z 
+    .string({required_error:"Email is required"})
+    .trim()
+    .email({message: "Invalid email address"})
+    .min(3,{message:"Email must be atleast 3 chracter"})
+    .max(255, {message:"Email must not be more than the 255 chartcer"}),
+
+    // password validation 
+
+    password:z
+    .string({required_error:"Password is required"})
+    .trim()
+    .min(5,{message:"pasword is atleast 5 charcter"})
+    .max(1024,{message:"passwor is not more than the 1024 character"})
+})
+
+export  {signupSchema, loginSchema};
