@@ -1,10 +1,14 @@
 import express from "express";
 import router from "./src/Routes/index.js";
+import cors from'cors';
 import errorMiddleware from "./src/Middleware/error-middleware.js";
 
 
 const server = express();
-
+server.use(cors({
+    origin:process.env.CORS_ORIGIN,
+    Credential:true
+}));
 server.use(
     express.urlencoded({ extended: true })
 );
