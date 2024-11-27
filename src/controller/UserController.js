@@ -63,5 +63,17 @@ const login = async(req,res)=>{
        }
 }
 
+const user = async(req,res)=>{
 
-export {register,login};
+   try {
+        const userData = req.user;
+        console.log(userData);
+       return res.status(200).json({msg:userData})
+        
+   } catch (error) {
+      console.log(`error from the user route ${error}`);
+   }
+
+}
+
+export {register,login ,user};
