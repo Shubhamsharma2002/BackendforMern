@@ -8,7 +8,7 @@ const register = async(req,res)=>{
          //  console.log(req.body)
        const emailExist = await User.findOne({email});
        if(emailExist){
-          res.status(400).json({msg:"  email alardey reistred  with the our  company"})
+          res.status(400).json({message:"  email alardey reistred  with the our  company"})
        }
       const saltRound = 10;
       const hashed_Password = await bcrypt.hash(password,saltRound);
@@ -16,7 +16,7 @@ const register = async(req,res)=>{
       
          res.status(201).json(
             {
-            msg:"user created sucessfully ::)" , 
+            message:"user created sucessfully ::)" , 
             token : await user.genrateToken(),
             userId : user._id.toString()
          }
@@ -46,7 +46,7 @@ const login = async(req,res)=>{
              if(validPassword){
                res.status(200).json(
                   {
-                  msg:"Login sucessfully ::)" , 
+                  message:"Login sucessfully ::)" , 
                   token : await validEmail.genrateToken(),
                   userId : validEmail._id.toString()
                }
@@ -67,7 +67,7 @@ const user = async(req,res)=>{
 
    try {
         const userData = req.user;
-        console.log(userData);
+      //   console.log(userData);
        return res.status(200).json({userData})
         
    } catch (error) {
