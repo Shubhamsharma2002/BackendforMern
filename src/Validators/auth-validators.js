@@ -1,6 +1,6 @@
 
 import { z } from "zod";
-
+// zod validation is vaery impressive;
 const signupSchema = z.object({
     // fullname validation
     fullname : z.string({required_error:"Fullname is required"})
