@@ -34,4 +34,20 @@ const deleteUserByid = async(req,res)=>{
        }
 }
 
-export {getAllUser,getAllcontact,deleteUserByid}
+const updateUserById = async(req,res)=>{
+      try {
+          const id = req.params.id;
+          const updateUserdata = req.body;
+
+          const updateData = await User.updateOne(
+            {_id:id}, 
+            {
+              $set:updateUserdata
+            })
+
+           return res.status(200).json(updateData);
+      } catch (error) {
+        next(error);
+      }
+}
+export {getAllUser,getAllcontact,deleteUserByid,updateUserById}
