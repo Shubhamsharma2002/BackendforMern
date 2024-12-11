@@ -23,7 +23,7 @@ const getAllcontact = async(req,res)=>{
         next(error);
     }
 }
-
+// delete user
 const deleteUserByid = async(req,res)=>{
        try {
            const id = req.params.id;
