@@ -12,6 +12,8 @@ const getAllUser = async(req,res)=>{
   }
 }
 
+// contact controller
+
 const getAllcontact = async(req,res)=>{
     try {
          const msg = await Contact.find();
