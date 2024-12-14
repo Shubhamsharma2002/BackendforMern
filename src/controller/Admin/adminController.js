@@ -12,7 +12,7 @@ const getAllUser = async(req,res)=>{
   }
 }
 
-// contact controller .....................................................................................................
+// cont
 
 const getAllcontact = async(req,res)=>{
     try {
