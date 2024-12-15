@@ -11,9 +11,15 @@ const getAllUser = async(req,res)=>{
     next(error);
   }
 }
-
-// cont
-
+const getUserByID = async(req,res)=>{
+       try {
+           const id = req.params.id;
+            const data = await User.findOne({_id:id},{password:0});
+            return res.status(200).json(data)
+       } catch (error) {
+        next(error);
+       }
+}
 const getAllcontact = async(req,res)=>{
     try {
          const msg = await Contact.find();
@@ -52,4 +58,4 @@ const updateUserById = async(req,res)=>{
         next(error);
       }
 }
-export {getAllUser,getAllcontact,deleteUserByid,updateUserById}
+export {getAllUser,getAllcontact,deleteUserByid,updateUserById, getUserByID}
