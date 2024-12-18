@@ -6,13 +6,13 @@ const contact = async(req,res)=>{
         const response = req.body;
         await Contact.create(response);
         return res.status(201).json({
-            message:"messgae send sucessfully"
+            message:"messgae send sucessfully ::)"
           }) ;
 
         
        } catch (error) {
         return res.status(401).json({
-            message:"getting error to send messgae ----->"
+            message:"getting error to send messgae <----->"
           }) ;
        }
 }
