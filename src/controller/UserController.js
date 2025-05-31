@@ -1,6 +1,6 @@
 import { User } from "../model/User.model.js";
 import bcrypt from "bcryptjs";
-
+//  register 
 const register = async(req,res)=>{
     
    try {
@@ -31,7 +31,7 @@ const register = async(req,res)=>{
 
 
 
-
+//  login here
 const login = async(req,res)=>{
        try {
                const {email,password} = req.body;
