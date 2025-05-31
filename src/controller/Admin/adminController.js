@@ -1,5 +1,6 @@
 import { User } from "../../model/User.model.js";
 import {Contact} from "../../model/contact.model.js";
+//  all user here
 const getAllUser = async(req,res)=>{
   try {
       const user = await User.find({}, {password:0});
@@ -11,6 +12,7 @@ const getAllUser = async(req,res)=>{
     next(error);
   }
 }
+//  user by id 
 const getUserByID = async(req,res)=>{
        try {
            const id = req.params.id;
@@ -20,6 +22,7 @@ const getUserByID = async(req,res)=>{
         next(error);
        }
 }
+//  contact details
 const getAllcontact = async(req,res)=>{
     try {
          const msg = await Contact.find();
@@ -41,7 +44,7 @@ const deleteUserByid = async(req,res)=>{
         next(error);
        }
 }
-
+//  update user by id 
 const updateUserById = async(req,res)=>{
       try {
           const id = req.params.id;
@@ -58,7 +61,7 @@ const updateUserById = async(req,res)=>{
         next(error);
       }
 }
-
+//  delete contact
 const deleteContact = async( req,res)=>{
        try {
            const id = req.params.id;
