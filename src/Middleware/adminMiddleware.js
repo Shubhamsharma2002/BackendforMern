@@ -1,6 +1,7 @@
 const addminMiddleware = async(req,res,next)=>{
 
     try {
+      // / checking user role here 
           console.log(req.user);
           const adminRole = req.user.isAdmin;
           if(!adminRole){
@@ -11,6 +12,7 @@ const addminMiddleware = async(req,res,next)=>{
           next();
           
     } catch (error) {
+      // forwarding with the error
         next(error);
     }
 } 
