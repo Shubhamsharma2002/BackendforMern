@@ -2,6 +2,7 @@ import express from "express";
 import {deleteContact, deleteUserByid, getAllUser,getAllcontact, getUserByID, updateUserById} from "../../controller/Admin/adminController.js"
 import authmiddleware from "../../Middleware/authMiddleware.js";
 import addminMiddleware from "../../Middleware/adminMiddleware.js"
+// admin router
 const adminRouter = express.Router();
 
 
