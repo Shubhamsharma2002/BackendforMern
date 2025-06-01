@@ -3,6 +3,7 @@ import {login, register, user} from "../../controller/UserController.js";
 import {signupSchema ,loginSchema} from "../../Validators/auth-validators.js"
 import validete from "../../Middleware/validate-middleware.js";
 import authmiddleware from "../../Middleware/authMiddleware.js";
+// user router
 const userRouter = express.Router();
 
 
